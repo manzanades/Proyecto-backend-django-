@@ -1,0 +1,230 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NUAM — Mantenedor de Calificaciones Tributarias</title>
+  <meta name="description" content="NUAM - Holding regional que integra las Bolsas de Santiago, Colombia y Lima. Herramienta demo para convertir montos a factores usados en procesos internos." />
+  <link rel="icon" href="data:;base64,iVBORw0KGgo="> <!-- placeholder favicon -->
+  <link rel="stylesheet" href="{% static 'index.css' %}">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">NUAM</div>
+        <div>
+          <strong>NUAM</strong>
+          <div class="muted">Holding regional • Bolsas de Santiago, Colombia y Lima</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">Acerca</a>
+        <a href="#tool">Conversor</a>
+        <a href="#crud">Mantenedor</a>
+        <a href="#contact">Contacto</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div>
+        <div class="card">
+          <h1>Mantenedor de Calificaciones Tributarias</h1>
+          <p class="lead">Proyecto tecnológico para convertir montos a factores tributarios y administrarlos en los procesos internos del mercado unificado. Incluye herramienta de conversión, CRUD de registros y vistas administrativas.</p>
+
+          <div class="features">
+            <div class="feature">
+              <strong>Integración regional</strong>
+              <div class="muted">Soporta reglas y formatos de Chile, Colombia y Perú.</div>
+            </div>
+            <div class="feature">
+              <strong>Auditable</strong>
+              <div class="muted">Registro de cambios y trazabilidad para cada conversión.</div>
+            </div>
+            <div class="feature">
+              <strong>Exportable</strong>
+              <div class="muted">Exporta tablas a CSV para procesos batch.</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:16px" class="card">
+          <h3>Stack sugerido</h3>
+          <ul class="muted">
+            <li>Django (backend) + Django Admin</li>
+            <li>PostgreSQL</li>
+            <li>HTML/CSS/JS para front — fetch + endpoints REST</li>
+            <li>Tests automatizados y CI (GitHub Actions)</li>
+          </ul>
+        </div>
+      </div>
+
+      <aside class="card">
+        <h3 id="tool">Conversor de monto → factor</h3>
+        <div class="tool">
+          <div>
+            <label>Monto (moneda local)</label>
+            <input id="amount" type="number" placeholder="e.g. 1000000" />
+          </div>
+          <div>
+            <label>Regla / Factor base</label>
+            <select id="rule">
+              <option value="0.0001">Factor fijo (ej. 0.0001)</option>
+              <option value="auto_arith">Automático (ej. 1 / monto)</option>
+              <option value="percent_10">10% del monto</option>
+            </select>
+          </div>
+          <div style="display:flex;gap:8px">
+            <button id="convert">Convertir</button>
+            <button id="reset" style="background:#ef4444">Reset</button>
+          </div>
+
+          <div id="result" class="muted" style="margin-top:12px">Resultado: —</div>
+
+          <hr />
+          <div class="muted" style="font-size:13px">Nota: esta herramienta es una demo de front-end. En producción la conversión y validaciones debe realizarse en el servidor con reglas oficiales y registro de auditoría.</div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="crud" style="margin-top:22px">
+      <div class="card">
+        <h3>Mantenedor (demo client-side)</h3>
+        <p class="muted">Agregar y editar calificaciones tributarias. En una implementación real esto se mapearía a una API REST con control de acceso y logging.</p>
+
+        <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
+          <input id="entryName" placeholder="Nombre (p. ej. IVA 1)" />
+          <input id="entryFactor" placeholder="Factor (ej. 0.0001)" />
+          <button id="addEntry">Agregar</button>
+          <button id="exportCsv">Exportar CSV</button>
+        </div>
+
+        <table id="entriesTable" aria-live="polite">
+          <thead>
+            <tr><th>Nombre</th><th>Factor</th><th>Acciones</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="about" style="margin-top:22px">
+      <div class="card">
+        <h3>Acerca del proyecto</h3>
+        <p class="muted">NUAM es un holding que busca un mercado más eficiente y homogéneo entre las plazas de Santiago, Colombia y Lima. Este proyecto responde a la necesidad de contar con un módulo mantenedor de calificaciones tributarias que permita:</p>
+        <ul class="muted">
+          <li>Registrar y versionar factores tributarios utilizados en procesos internos.</li>
+          <li>Convertir montos a factores según reglas locales y globales.</li>
+          <li>Auditar y exportar historial para conciliaciones.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact" style="margin-top:22px">
+      <div class="card">
+        <h3>Contacto</h3>
+        <p class="muted">Equipo de Tecnología NUAM — <strong>tech@nuam.example</strong> (placeholder)</p>
+        <p class="muted">Repositorio: <em>Incluye .gitignore y README con instrucciones de despliegue.</em></p>
+      </div>
+    </section>
+
+    <footer>
+      © NUAM — Proyecto demo de mantenedor de calificaciones tributarias
+    </footer>
+  </div>
+
+  <script>
+    // Conversor simple — demo
+    const amountEl = document.getElementById('amount');
+    const ruleEl = document.getElementById('rule');
+    const resultEl = document.getElementById('result');
+    const convertBtn = document.getElementById('convert');
+    const resetBtn = document.getElementById('reset');
+
+    convertBtn.addEventListener('click', ()=>{
+      const amount = parseFloat(amountEl.value);
+      const rule = ruleEl.value;
+      if(!amount || amount <= 0){ resultEl.textContent = 'Ingrese un monto válido (>0).'; return }
+      let res;
+      if(rule === 'auto_arith'){
+        res = 1 / amount;
+      } else if(rule === 'percent_10'){
+        res = amount * 0.10;
+      } else {
+        res = amount * parseFloat(rule);
+      }
+      resultEl.textContent = 'Resultado: ' + Number(res).toLocaleString(undefined, {maximumFractionDigits:8});
+    });
+    resetBtn.addEventListener('click', ()=>{ amountEl.value=''; ruleEl.value='0.0001'; resultEl.textContent='Resultado: —' })
+
+    // CRUD demo (client-side only)
+    const entries = [];
+    const tbody = document.querySelector('#entriesTable tbody');
+    const entryName = document.getElementById('entryName');
+    const entryFactor = document.getElementById('entryFactor');
+    const addEntryBtn = document.getElementById('addEntry');
+    const exportCsvBtn = document.getElementById('exportCsv');
+
+    function renderTable(){
+      tbody.innerHTML = '';
+      entries.forEach((e, i)=>{
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${escapeHtml(e.name)}</td><td>${e.factor}</td><td><button data-i="${i}" class="edit">Editar</button> <button data-i="${i}" class="del">Eliminar</button></td>`;
+        tbody.appendChild(tr);
+      });
+    }
+
+    addEntryBtn.addEventListener('click', ()=>{
+      const name = (entryName.value||'').trim();
+      const factor = parseFloat(entryFactor.value);
+      if(!name){ alert('Nombre requerido'); return }
+      if(isNaN(factor)){ alert('Factor inválido'); return }
+      entries.push({name,factor});
+      entryName.value=''; entryFactor.value=''; renderTable();
+    });
+
+    tbody.addEventListener('click', (ev)=>{
+      const t = ev.target;
+      if(t.matches('.del')){
+        const i = Number(t.dataset.i); if(!Number.isFinite(i)) return;
+        if(confirm('Eliminar entrada?')){ entries.splice(i,1); renderTable(); }
+      }
+      if(t.matches('.edit')){
+        const i = Number(t.dataset.i); const e = entries[i];
+        const newName = prompt('Nuevo nombre', e.name); if(newName===null) return;
+        const newFactor = prompt('Nuevo factor', e.factor); if(newFactor===null) return;
+        const nf = parseFloat(newFactor); if(isNaN(nf)){ alert('Factor inválido'); return }
+        entries[i] = {name:newName.trim(), factor:nf}; renderTable();
+      }
+    });
+
+    exportCsvBtn.addEventListener('click', ()=>{
+      if(entries.length===0){ alert('No hay entradas'); return }
+      const header = ['Nombre','Factor'];
+      const rows = entries.map(e=>[e.name, e.factor]);
+      const csv = [header,...rows].map(r=>r.map(c=>`"${String(c).replace(/"/g,'""')}"`).join(',')).join('\n');
+      const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href = url; a.download = 'calificaciones.csv'; document.body.appendChild(a); a.click(); a.remove();
+      URL.revokeObjectURL(url);
+    });
+
+    function escapeHtml(unsafe) {
+      return unsafe
+           .replace(/&/g, "&amp;")
+           .replace(/</g, "&lt;")
+           .replace(/>/g, "&gt;")
+           .replace(/\"/g, "&quot;")
+           .replace(/'/g, "&#039;");
+    }
+
+    // Accessibility: keyboard focus for interactive demo
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape'){
+        entryName.value=''; entryFactor.value='';
+      }
+    });
+  </script>
+</body>
+</html>
