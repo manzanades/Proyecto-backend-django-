@@ -1,4 +1,4 @@
-Integrntes:
+Integrantes:
 - Nicolas Sepulveda
 - Jose Alonso Anabalon
 - Sebastian Cadiz
