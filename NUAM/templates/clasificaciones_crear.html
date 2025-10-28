@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if form.instance.pk %}
+        <h1>Editar Calificación Tributaria</h1>
+    {% else %}
+        <h1>Crear Nueva Calificación Tributaria</h1>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %} {{ form.as_p }} 
+        
+        <button type="submit" class="btn-guardar">Guardar Cambios</button>
+        <a href="{% url 'clasificacion_lista' %}">Cancelar</a>
+    </form>
+
+{% endblock %}
