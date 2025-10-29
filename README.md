@@ -53,7 +53,9 @@ para entrar el entorno:
 source (nombre)/bin/activate
 
 Instala las django:
+windows
 python -m pip install django
+Linux:
 python3 -m pip install django
 
 Aplica las migraciones :
