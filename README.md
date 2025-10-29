@@ -64,6 +64,12 @@ python manage.py migrate
 Linux:
 python manage.py migrate
 
+Entre al proyecto:
+cd NUAM
+
+Ejecuta el servidor de desarrollo:
+python3 manage.py runserver
+
 credenciales sugeridas (Ya creadas):
 1-
 Usuario:Nicolas
@@ -72,9 +78,6 @@ Contraseña:Nico99167647
 Usuario:Sebastian 
 Contraseña:Seba99167647
 
-Ejecuta el servidor de desarrollo:
-
-python manage.py runserver
 
 Dentro la pagina veras inicio de sesion o cear cuenta si ya tiene una usela, si no creese una. 
 Al entrar a la pagina incial vera dos opciones en la parte superior derecho y el nombre del usuario y el cierre de dicha sesion del usuario. 
