@@ -5,3 +5,68 @@ Integrantes:
 - Nicolas Lobos Morales
 
 En este trabajo esta dedicado a la evaluacion del proyecto NUAM, como objetivo de un mantenedor de calificaciones tributarias.
+
+Tecnologías Utilizadas
+
+Componente Tecnología 
+
+Lenguaje principal| Python 3.12 
+Framework web Django 5.1 
+Base de datos SQLite (por defecto) 
+Frontend HTML5, CSS3, Bootstrap 5 
+Servidor de desarrollo Django runserver 
+Control de versiones Git / GitHub 
+
+
+
+ Requisitos Previos
+
+Asegúrate de tener instalado:
+
+- [Python 3.12+]
+- [pip,pip3]
+- [Git]
+- Entorno virtual
+
+
+Instalación y Configuración
+
+Clona el repositorio:
+
+git clone https://github.com/SebaCadiz/Projecto_Nuam.git
+cd Projecto_Nuam-main
+  cd Proyecto-backend-django
+    cd Nuam
+
+Crea y activa un entorno virtual:
+
+En Windows:
+python -m venv (nombre)
+venv\Scripts\activate
+
+En Linux:
+python -m venv (nombre)
+source venv/bin/activate
+
+Instala las django:
+python -m pip install django
+python3 -m pip install django
+
+Aplica las migraciones :
+
+python manage.py migrate
+
+credenciales sugeridas (Ya creadas):
+1-
+Usuario:Nicolas
+Contraseña:Nico99167647
+2-
+Usuario:Sebastian super usario
+Contraseña:Seba99167647
+
+Ejecuta el servidor de desarrollo:
+
+python manage.py runserver
+
+Dentro la pagina veras inicio de sesion o cear cuenta si ya tiene una usela, si no creese una. 
+Al entrar a la pagina incial vera dos opciones en la parte superior derecho y el nombre del usuario y el cierre de dicha sesion del usuario. 
