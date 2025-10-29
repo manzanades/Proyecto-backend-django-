@@ -42,10 +42,12 @@ Crea y activa un entorno virtual:
 
 En Windows:
 python -m venv (nombre)
+para entrar el entorno
 venv\Scripts\activate
 
 En Linux:
 python -m venv (nombre)
+para entrar el entorno
 source venv/bin/activate
 
 Instala las django:
