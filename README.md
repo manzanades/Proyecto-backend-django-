@@ -33,7 +33,7 @@ Instalación y Configuración
 
 Clona el repositorio:
 
-git clone https://github.com/SebaCadiz/Projecto_Nuam.git
+gh repo clone manzanades/Proyecto-backend-django-
 cd Projecto_Nuam-main
   cd Proyecto-backend-django
     cd Nuam
