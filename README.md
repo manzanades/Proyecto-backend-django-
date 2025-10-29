@@ -59,7 +59,9 @@ Linux:
 python3 -m pip install django
 
 Aplica las migraciones :
-
+Windows:
+python manage.py migrate
+Linux:
 python manage.py migrate
 
 credenciales sugeridas (Ya creadas):
