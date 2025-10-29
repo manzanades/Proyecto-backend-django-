@@ -12,7 +12,7 @@ from django.contrib import messages
 # Create your views here.
 @login_required
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'Index.html')
 
 def CrearUsuario(request):
     if request.method == 'POST':
