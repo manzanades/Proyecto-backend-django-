@@ -1,0 +1,170 @@
+/* --- 1. Estilos Generales y Contenedor --- */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7f6; 
+    color: #343a40; /* Gris oscuro para profesionalismo */
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+}
+
+.contenedor-principal {
+    max-width: 1100px; /* Un poco más de espacio */
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px; /* Más redondeado */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); 
+}
+
+/* --- 2. Títulos y Párrafos --- */
+h1 {
+    color: #0056b3; /* Azul más oscuro y profesional */
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.descripcion {
+    margin-bottom: 25px;
+    color: #6c757d;
+}
+
+.separador {
+    border: 0;
+    height: 1px;
+    background-color: #e9ecef;
+    margin: 20px 0;
+}
+
+/* --- 3. Controles Superiores (Volver y Añadir) --- */
+.acciones-superiores {
+    display: flex; 
+    justify-content: space-between; /* Alinea Volver a la izquierda y Añadir a la derecha */
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    border: none;
+    cursor: pointer;
+}
+
+/* Estilo para el botón de Añadir (Acción Principal) */
+.btn-primario {
+    background-color: #28a745; 
+    color: white;
+    box-shadow: 0 2px 4px rgba(40, 167, 69, 0.4);
+}
+
+.btn-primario:hover {
+    background-color: #218838;
+    transform: translateY(-1px);
+}
+
+/* Estilo para el botón de Volver (Nuevo y mejorado) */
+.btn-volver-tabla {
+    display: inline-block;
+    padding: 8px 12px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 0.95em;
+    color: #007bff; 
+    background-color: transparent;
+    border: 1px solid #007bff;
+    transition: all 0.2s ease;
+}
+
+.btn-volver-tabla:hover {
+    background-color: #e9ecef;
+    border-color: #0056b3;
+    color: #0056b3;
+}
+
+/* --- 4. Estilo de la Tabla --- */
+.tabla-calificaciones {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 1px solid #dee2e6; /* Borde sutil para toda la tabla */
+    border-radius: 6px;
+    overflow: hidden; /* Para que los bordes redondeados se vean bien */
+}
+
+.tabla-calificaciones thead th {
+    background-color: #007bff;
+    color: white;
+    text-align: left;
+    padding: 12px 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tabla-calificaciones tbody td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.tabla-calificaciones tbody tr:nth-child(even) {
+    background-color: #f8f9fa; 
+}
+
+.tabla-calificaciones tbody tr:hover {
+    background-color: #e9ecef; 
+}
+
+.celda-numerica {
+    text-align: right; 
+    font-family: monospace, sans-serif;
+    font-weight: 600;
+}
+
+/* Estilo para el código de moneda (rellenado por JS) */
+.codigo-moneda {
+    font-weight: bold;
+    color: #3498db; /* Azul claro para destacar */
+}
+
+/* Estilo para cuando no hay registros */
+.sin-registros {
+    text-align: center !important;
+    font-style: italic;
+    color: #888;
+    padding: 20px !important;
+    background-color: #fceceb;
+}
+
+/* --- 5. Botones de Acciones en la Tabla (Editar/Eliminar) --- */
+.celda-acciones {
+    text-align: center;
+    width: 150px;
+}
+.btn-accion {
+    text-decoration: none;
+    margin: 0 5px;
+    font-weight: 500;
+    padding: 6px 10px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.btn-accion:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.editar {
+    color: #17a2b8;
+}
+
+.eliminar {
+    color: #dc3545;
+}

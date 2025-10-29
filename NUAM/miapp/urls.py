@@ -8,6 +8,7 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='crear_usuario.html' ), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('crear/', views.CrearUsuario, name='crear_usuario'),
+    path('conversor/', views.conversor_view, name='conversor'),
     # --- MANTENEDOR (CRUD) DE CALIFICACIONES TRIBUTARIAS ---
 
     # 1. READ (Leer/Listar) - La página principal del mantenedor

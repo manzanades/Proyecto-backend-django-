@@ -1,5 +1,8 @@
-from django.shortcuts import render, redirect
+
 from django.http import HttpResponse
+from django.shortcuts import render, redirect
+from .models import CalificacionTributaria
+from .forms import CalificacionTributariaForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth import login
@@ -41,12 +44,11 @@ def CrearUsuario(request):
 
 @login_required
 def lista_de_calificaciones(request):
-    items = CalificacionTributaria.objects.all() # Busca todos los items
+    items = CalificacionTributaria.objects.all()
     contexto = {
         'lista_de_items': items
     }
-    # Renderiza la plantilla de la lista
-    return render(request, 'clasificacion_lista.html', contexto)
+    return render(request, 'Clasificacion_tributaria.html', contexto)
 
 
 # 2. CREATE (Crear)
@@ -103,3 +105,27 @@ def clasificacion_eliminar(request, pk):
     }
     # Muestra una página de confirmación
     return render(request, 'clasificacion_confirmar_eliminar.html', contexto)
+
+
+
+@login_required
+def conversor_view(request):
+
+    return render(request, 'Conversor.html')
+
+
+# Mapeo de ejemplo en tu views.py
+MONEDAS_POR_PAIS = {
+    'Chile': 'CLP',
+    'Colombia': 'COP',
+    'Perú': 'PEN',
+}
+
+def get_moneda(pais_nombre):
+    return MONEDAS_POR_PAIS.get(pais_nombre, 'N/A')
+items_con_moneda = []
+for item in CalificacionTributaria.objects.all(): # Ejemplo de cómo obtienes tus objetos
+    codigo = get_moneda(item.pais.nombre)
+    item.moneda_codigo = codigo #
+    
+    items_con_moneda.append(item)

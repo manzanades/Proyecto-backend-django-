@@ -1,192 +1,237 @@
 :root {
-  --accent: #0f766e;
-  --muted: #6b7280;
-  --card: #ffffff;
-  --bg: #f8fafc;
-  --glass: rgba(255, 255, 255, 0.7);
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    /* 🎨 Paleta enfocada en la Confianza y la Tecnología */
+    --primary: #1e3a8a; /* Azul Marino Profundo (NUAM principal) */
+    --accent: #059669; /* Verde Esmeralda (Éxito y Acción) */
+    --muted: #6b7280; /* Gris para texto secundario */
+    --card: #ffffff;
+    --bg: #f4f7f6; /* Fondo más suave, menos grisáceo */
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --shadow-deep: 0 10px 30px rgba(0, 0, 0, 0.1);
+    
+    font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
+/* --- Base y Contenedor --- */
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  background: var(--bg);
-  color: #0f172a;
-  line-height: 1.45;
+    margin: 0;
+    background: var(--bg);
+    color: var(--primary); /* El texto principal usa el color principal */
+    line-height: 1.6; /* Aumentado para mejor lectura */
+    font-size: 16px;
 }
 
 .container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 24px;
+    max-width: 1200px; /* Un poco más ancho */
+    margin: 0 auto;
+    padding: 24px;
 }
 
+/* --- Header y Navegación --- */
 header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 18px 0;
-  flex-wrap: wrap; /* Añadido para mejor responsividad */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0; /* Más vertical padding */
+    border-bottom: 1px solid #e2e8f0; /* Separador sutil */
+    margin-bottom: 30px; /* Espacio después del header */
 }
 
 .brand {
-  display: flex;
-  gap: 14px;
-  align-items: center;
+    display: flex;
+    gap: 16px; /* Aumentado el espaciado */
+    align-items: center;
 }
 
 .logo {
-  width: 52px;
-  height: 52px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, var(--accent), #0369a1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: 700;
+    width: 56px; /* Un poco más grande */
+    height: 56px;
+    border-radius: 12px; /* Más redondeado */
+    background: linear-gradient(135deg, var(--primary), #007bff); /* Degradado más profesional */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 800; /* Extra-bold */
+    font-size: 1.2em;
 }
 
-/* Mueve la nav y lo que le sigue (la sesión) a la derecha */
 nav {
-  margin-left: auto;
+    margin-left: auto;
+    display: flex; /* Asegura que los links estén bien alineados */
+    align-items: center;
 }
 
 nav a {
-  margin-left: 18px;
-  color: var(--muted);
-  text-decoration: none;
+    margin-left: 24px; /* Más espaciado entre links */
+    color: var(--muted);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
 }
 
-.hero {
-  display: grid;
-  grid-template-columns: 1fr 420px;
-  gap: 28px;
-  align-items: center;
-  margin: 28px 0;
+nav a:hover {
+    color: var(--accent); /* Resaltar al pasar el mouse */
 }
 
-.card {
-  background: var(--card);
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(2, 6, 23, 0.06);
-}
-
-h1 {
-  margin: 0 0 12px;
-  font-size: 28px;
-}
-
-p.lead {
-  margin: 0;
-  color: var(--muted);
-}
-
-.features {
-  display: flex;
-  gap: 12px;
-  margin-top: 16px;
-}
-
-.feature {
-  flex: 1;
-  padding: 12px;
-  border-radius: 8px;
-  background: linear-gradient(180deg, rgba(15, 118, 110, 0.06), transparent);
-  border: 1px solid rgba(15, 118, 110, 0.06);
-}
-
-.tool {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-label {
-  font-size: 13px;
-  color: var(--muted);
-}
-
-input[type="number"],
-select {
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #e6e9ef;
-  font-size: 15px;
-  width: 100%;
-}
-
-button {
-  background: var(--accent);
-  color: white;
-  padding: 10px 14px;
-  border-radius: 8px;
-  border: 0;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 12px;
-}
-
-table th,
-table td {
-  padding: 10px;
-  text-align: left;
-  border-bottom: 1px solid #eef2f7;
-}
-
-.muted {
-  color: var(--muted);
-  font-size: 13px;
-}
-
-footer {
-  margin: 36px 0 12px;
-  color: var(--muted);
-  font-size: 13px;
-  text-align: center;
-}
-
-@media (max-width: 900px) {
-  .hero {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* --- ESTILOS PARA EL APARTADO DE SESIÓN --- */
-
+/* --- Sesión de Usuario y Logout --- */
 .user-session {
-  display: flex;
-  align-items: center;
-  gap: 14px; /* Mismo espaciado que tu .brand */
-  margin-left: 18px; /* Espacio para separarlo de la nav */
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-left: 30px;
 }
 
 .user-session .username {
-  color: var(--muted); /* Usa tu variable de color */
-  font-weight: 600;
-  font-size: 13px; /* Coincide con tu clase .muted */
+    color: var(--primary); 
+    font-weight: 600;
+    font-size: 14px; 
 }
 
 .btn-logout {
-  background-color: #ef4444; /* El color rojo de tu botón "Reset" */
-  color: white;
-  padding: 8px 12px; /* Un poco más pequeño para el header */
-  border-radius: 8px; /* Coincide con tus otros botones */
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 13px;
-  transition: background-color 0.2s ease;
+    background-color: #ef4444; 
+    color: white;
+    padding: 8px 14px; 
+    border-radius: 6px; 
+    border: none;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
 }
 
 .btn-logout:hover {
-  background-color: #dc2626; /* Rojo más oscuro */
+    background-color: #dc2626; 
+}
+
+/* --- Sección Principal (Hero) --- */
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 40px; /* Aumentado el gap para más aire */
+    align-items: center;
+    margin: 40px 0;
+}
+
+.card {
+    background: var(--card);
+    padding: 30px; /* Más padding para que respire */
+    border-radius: 16px; /* Más redondeado */
+    box-shadow: var(--shadow-deep); /* Sombra más notable */
+}
+
+h1 {
+    margin: 0 0 16px;
+    font-size: 34px; /* Título más grande */
+    color: var(--primary);
+    line-height: 1.1;
+}
+
+p.lead {
+    margin: 0 0 20px;
+    color: #4b5563; /* Gris ligeramente más oscuro para el lead */
+    font-size: 1.1em;
+}
+
+/* --- Botón de Acción Principal (Mejora dramática) --- */
+.accion-principal-hero {
+    margin: 30px 0;
+}
+
+.btn-grande {
+    display: inline-block;
+    padding: 16px 32px;
+    font-size: 1.1em;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 30px; /* Píldora */
+    transition: all 0.3s ease;
+    background-color: var(--accent);
+    color: white;
+    box-shadow: 0 5px 15px rgba(5, 150, 105, 0.4);
+}
+
+.btn-grande:hover {
+    background-color: #047857;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(5, 150, 105, 0.6);
+}
+
+/* --- Features (Espacio vacío, pero con estilo) --- */
+.features {
+    display: flex;
+    gap: 20px; /* Más espaciado */
+    margin-top: 25px;
+}
+
+.feature {
+    flex: 1;
+    padding: 15px;
+    border-radius: 10px;
+    background: #f0fdf4; /* Fondo verde muy pálido para destacar */
+    border: 1px solid #dcfce7;
+    /* Se eliminarán, pero el estilo queda por si los restauras */
+}
+
+.feature strong {
+    color: var(--accent);
+    display: block;
+    margin-bottom: 4px;
+}
+
+/* --- Secciones Secundarias (Acerca de, Contacto) --- */
+section {
+    margin-top: 40px; /* Más espacio entre secciones */
+}
+
+section h3 {
+    color: var(--primary);
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #eef2f7;
+    padding-bottom: 5px;
+}
+
+/* --- Clases auxiliares --- */
+.muted {
+    color: var(--muted);
+    font-size: 0.9em;
+}
+
+/* --- Footer --- */
+footer {
+    margin: 40px 0 20px;
+    color: var(--muted);
+    font-size: 0.85em;
+    text-align: center;
+}
+
+/* --- Media Queries (Responsividad) --- */
+@media (max-width: 900px) {
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    nav {
+        margin-left: 0;
+        margin-top: 15px;
+    }
+    nav a {
+        margin-left: 0;
+        margin-right: 15px;
+    }
+    .user-session {
+        position: absolute; /* O lo mueves al final del header */
+        top: 25px;
+        right: 24px;
+        margin-left: 0;
+    }
 }
