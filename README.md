@@ -42,13 +42,15 @@ Crea y activa un entorno virtual:
 
 En Windows:
 python -m venv (nombre)
+
 para entrar el entorno
-venv\Scripts\activate
+(nombre)\Scripts\activate
 
 En Linux:
 python -m venv (nombre)
-para entrar el entorno
-source venv/bin/activate
+
+para entrar el entorno:
+source (nombre)/bin/activate
 
 Instala las django:
 python -m pip install django
