@@ -68,8 +68,8 @@ credenciales sugeridas (Ya creadas):
 1-
 Usuario:Nicolas
 Contraseña:Nico99167647
-2-
-Usuario:Sebastian super usario
+2-super usuario
+Usuario:Sebastian 
 Contraseña:Seba99167647
 
 Ejecuta el servidor de desarrollo:
