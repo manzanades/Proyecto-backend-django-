@@ -1,0 +1,109 @@
+===========================================
+MANUAL DE USUARIO — SISTEMA NUAM
+Mantenedor de Calificaciones Tributarias
+===========================================
+
+1. DESCRIPCIÓN GENERAL
+----------------------
+El sistema NUAM es una aplicación web desarrollada en Django que permite 
+gestionar calificaciones tributarias utilizadas en procesos internos 
+del mercado unificado entre Chile, Colombia y Perú.
+
+Incluye módulos para:
+- Crear, editar y eliminar calificaciones.
+- Iniciar y cerrar sesión de usuarios.
+- Registrar nuevos usuarios desde el mismo portal.
+
+---------------------------------------------
+
+2. PÁGINA DE INICIO (index.html)
+--------------------------------
+La página principal muestra:
+- Encabezado con logo, navegación y nombre del usuario.
+- Descripción del proyecto.
+- Botón principal para acceder al mantenedor.
+- Boton para el cierre de secion
+Pasos de uso:
+1. Inicia sesión.
+2. Desde la página principal, haga clic en:
+   “Acceder al Mantenedor de Calificaciones →”
+
+---------------------------------------------
+3. MANTENEDOR DE CALIFICACIONES (clasificacion_lista.html)
+-----------------------------------------------------------
+Permite ver y administrar todas las calificaciones registradas.
+
+Funciones:
+- Ver tabla de registros (Nombre, País, Moneda, Tasa/Factor).
+- Crear nueva calificación (+ Añadir Nueva Calificación).
+- Editar o eliminar registros.
+- Volver a la página de inicio.
+
+Mensajes:
+Si no existen registros, se mostrará:
+“No hay calificaciones registradas.”
+
+---------------------------------------------
+
+4. FORMULARIO DE CREACIÓN / EDICIÓN (clasificacion_form.html)
+--------------------------------------------------------------
+Formulario para agregar o modificar calificaciones tributarias.
+
+Campos típicos:
+- Nombre
+- País
+- Moneda
+- Tasa o Factor
+
+Botones:
+- Guardar Cambios o Crear Calificación
+- Cancelar (regresa al listado)
+
+Flujo:
+1. Desde el mantenedor, haz clic en “Añadir” o “Editar”.
+2. Completa los datos.
+3. Presiona Guardar para registrar los cambios.
+
+---------------------------------------------
+5. CONFIRMACIÓN DE ELIMINACIÓN
+-------------------------------
+Antes de borrar una calificación, el sistema solicita confirmación.
+Mensaje:
+“¿Estás seguro? Estás a punto de eliminar permanentemente la calificación...”
+
+Opciones:
+- Sí, eliminar
+- Cancelar
+
+---------------------------------------------
+
+6. INICIO DE SESIÓN Y CREACIÓN DE USUARIOS (login.html)
+--------------------------------------------------------
+Pantalla principal de autenticación del sistema.
+
+Inicio de sesión:
+- Ingresar ID de usuario y contraseña.
+- Si los datos son incorrectos, se mostrará un mensaje de error.
+
+Registro de nuevo usuario:
+Desde el botón “Crear Usuario” se abre un formulario con los campos:
+- ID Usuario 
+- Nombre completo
+- Correo electrónico
+- Teléfono
+- Contraseña
+
+Presionar “Registrarme” para crear el nuevo usuario.
+
+---------------------------------------------
+7. FLUJO GENERAL DEL SISTEMA
+-----------------------------
+1. Inicio de sesión.
+2. Página principal (Index).
+3. Mantenedor de calificaciones.
+4. Crear, editar o eliminar registros.
+5. Cerrar sesión.
+
+---------------------------------------------
+© NUAM — Proyecto Demo de Mantenedor de Calificaciones Tributarias
+---------------------------------------------
